@@ -1,8 +1,8 @@
 #include "dual_trackball.h"
 
-//#ifdef CONSOLE_ENABLE
+#ifdef CONSOLE_ENABLE
 #include "print.h"
-//#endif
+#endif
 
 //report_mouse_t pointing_device_task_combined_user(report_mouse_t left_report, report_mouse_t right_report) {
 //#ifdef CONSOLE_ENABLE
@@ -42,8 +42,6 @@ static void check_drag(report_mouse_t* mouse_report) {
 }
 
 report_mouse_t pointing_device_task_combined_user(report_mouse_t left_report, report_mouse_t right_report) {
-
-    print("combined_user\n");
     check_drag(&left_report);
     return pointing_device_combine_reports(left_report, right_report);
 }
